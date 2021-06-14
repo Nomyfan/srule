@@ -5,7 +5,7 @@ function Get-GfwList {
       $Url
   )
 
-  $response = Invoke-WebRequest -Uri $Url -RetryIntervalSec 1 -MaximumRetryCount 5 -Proxy "http://localhost:18118"
+  $response = Invoke-WebRequest -Uri $Url -RetryIntervalSec 1 -MaximumRetryCount 5
   $content = $response.Content
 
   return [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($content))
