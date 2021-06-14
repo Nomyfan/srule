@@ -1,0 +1,22 @@
+name: cron
+
+on:
+  schedule:
+    # At 00:00 on Sunday
+    - cron: "0 0 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: Run scripts
+        run: ./Run.ps1
+
+      - name: Commit & push
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
