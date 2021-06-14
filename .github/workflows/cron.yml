@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
 
       - name: Run scripts
-        run: ./Run.ps1
+        run: chmod +x ./Run.ps1 && ./Run.ps1
 
       - name: Commit & push
         uses: actions-js/push@master
